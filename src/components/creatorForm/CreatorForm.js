@@ -1,4 +1,10 @@
-function CreatorForm() {
+import { useState } from "react";
+
+function CreatorForm(props) {
+
+  let [title, setTitle] = useState('');
+
+
   return (
     <div className="row m-1 p-3">
       <div className="col col-11 mx-auto">
@@ -7,6 +13,11 @@ function CreatorForm() {
             <input
               className="form-control form-control-lg border-0 add-todo-input bg-transparent rounded"
               type="text"
+              value={title}
+              onChange={(event)=>{
+                setTitle(event.currentTarget.value);
+               ;
+              }}
               placeholder="Add new .."
             />
           </div>
@@ -28,7 +39,10 @@ function CreatorForm() {
             ></i>
           </div>
           <div className="col-auto px-0 mx-0 mr-2">
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-primary" onClick={()=>{ props.onSubmit({title});
+          
+              setTitle('');
+          }}>
               Add
             </button>
           </div>

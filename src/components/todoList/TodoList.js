@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import TodoListItem from "./todoListItem/TodoListItem";
 
-function TodoList() {
+let  TodoList = forwardRef((props, ref)=> {
+
+
+  useImperativeHandle(ref, ()=>({
+    addItem(item){
+      addItem(item);
+    }
+  }))
+
   let [items, setItems] = useState([
     { title: "Renew car insurance", id: 1 },
     { title: "Exercise", id: 2 },
     { title: "Homework", id: 3, dueDate: "asdfads" },
   ]);
+
+   function addItem(item){
+    setItems([{...item, id:Math.random()}, ...items]);
+  };
 
   function onTodoLIstItemChanged(data) {
     let id = data.id;
@@ -42,6 +54,6 @@ function TodoList() {
       </div>
     </div>
   );
-}
+});
 
 export default TodoList;
