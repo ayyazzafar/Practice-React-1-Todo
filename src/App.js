@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CreatorForm from "./components/creatorForm/CreatorForm";
+import Filters from "./components/filters/Filters";
+import Header from "./components/header/header";
+import TodoList from "./components/todoList/TodoList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container m-5 p-2 rounded mx-auto bg-light shadow">
+        <Header />
+        <CreatorForm />
+        <Filters />
+        <TodoList />
+      </div>
     </div>
   );
 }
