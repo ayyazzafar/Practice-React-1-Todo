@@ -22,6 +22,10 @@ function TodoList() {
     setItems(newItems);
   }
 
+  function onItemDelete(id){
+    setItems(items.filter((item)=>id!==item.id));
+  }
+
   return (
     <div className="row mx-1 px-5 pb-3 w-80">
       <div className="col mx-auto">
@@ -30,6 +34,7 @@ function TodoList() {
             <TodoListItem
               key={item.id}
               onChange={onTodoLIstItemChanged}
+              onDelete={onItemDelete}
               item={item}
             />
           );

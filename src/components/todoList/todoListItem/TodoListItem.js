@@ -77,6 +77,9 @@ function TodoListItem(props){
             </h5>
             <h5 className="m-0 p-0 px-2">
               <i
+              onClick={()=>{
+                props.onDelete(item.id)
+              }}
                 className="fa fa-trash-o text-danger btn m-0 p-0"
                 data-toggle="tooltip"
                 data-placement="bottom"
